@@ -55,8 +55,8 @@ public class NoteController {
      * @param id
      * @return
      */
-    @PostMapping
-    public String saveNote(Authentication authentication, @RequestParam Long id) {
+    @DeleteMapping
+    public String deleteNote(Authentication authentication, @RequestParam Long id) {
         User user = (User) authentication.getPrincipal();
         noteService.deleteNote(user, id);
         return "redirect:note";

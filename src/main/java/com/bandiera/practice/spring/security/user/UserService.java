@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * 유저 등록
@@ -22,7 +22,7 @@ public class UserService {
         if (userRepository.findByUsername(username) != null) {
             throw new AlreadyRegisteredUserException();
         }
-        return userRepository.save(new User(username, passswordEncoder.encode(password), "ROLE_USER"));
+        return userRepository.save(new User(username, passwordEncoder.encode(password), "ROLE_USER"));
     }
 
     /**
@@ -36,7 +36,7 @@ public class UserService {
         if (userRepository.findByUsername(username) != null) {
             throw new AlreadyRegisteredUserException();
         }
-        return userRepository.save(new User(username, passswordEncoder.encode(password), "ROLE_ADMIN"));
+        return userRepository.save(new User(username, passwordEncoder.encode(password), "ROLE_ADMIN"));
     }
 
     public User findByUsername(String username) {
