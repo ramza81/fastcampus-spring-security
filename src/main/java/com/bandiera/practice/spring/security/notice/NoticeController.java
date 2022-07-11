@@ -5,6 +5,7 @@ import com.bandiera.practice.spring.security.note.NoteRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.List;
 public class NoticeController {
 
     private final NoticeService noticeService;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * 공지사항 조회
